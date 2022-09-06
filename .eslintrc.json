@@ -56,7 +56,7 @@
     ".eslintrc.json",
     "package.json",
     "package-lock.json",
-    "image.png"
+    "README.md"
   ],
   "rules": {
     "react/react-in-jsx-scope": "off",
