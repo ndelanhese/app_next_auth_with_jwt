@@ -15,7 +15,9 @@ import {
 } from '@chakra-ui/react';
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 
-export const NavBar = () => {
+import { NavBarProps } from './types/NavBarProps';
+
+export const NavBar = ({ avatar_url }: NavBarProps) => {
   const { colorMode, toggleColorMode } = useColorMode();
   return (
     <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
@@ -36,18 +38,12 @@ export const NavBar = () => {
                 cursor="pointer"
                 minW={0}
               >
-                <Avatar
-                  size="sm"
-                  src="https://avatars.dicebear.com/api/male/username.svg"
-                />
+                <Avatar size="sm" src={avatar_url || ''} />
               </MenuButton>
               <MenuList alignItems="center">
                 <br />
                 <Center>
-                  <Avatar
-                    size="2xl"
-                    src="https://avatars.dicebear.com/api/male/username.svg"
-                  />
+                  <Avatar size="2xl" src={avatar_url || ''} />
                 </Center>
                 <br />
                 <Center>
