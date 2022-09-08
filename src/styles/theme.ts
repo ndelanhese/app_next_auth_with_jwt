@@ -16,7 +16,7 @@ export const theme = extendTheme({
     body: `"Roboto", 'sans-serif'`,
   },
   config: {
-    initialColorMode: 'light',
+    initialColorMode: 'dark',
     useSystemColorMode: false,
   },
 });
