@@ -19,7 +19,11 @@ import {
 } from '@chakra-ui/react';
 
 import { AuthContext } from '../contexts/AuthContexts';
-import { dataLoginProps } from './types/PagesTypes';
+
+type dataLoginProps = {
+  email: string;
+  password: string;
+};
 
 const Home: NextPage = () => {
   const { register, handleSubmit } = useForm<dataLoginProps>();
