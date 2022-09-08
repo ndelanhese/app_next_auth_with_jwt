@@ -17,7 +17,7 @@ import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 
 import { NavBarProps } from './types/NavBarProps';
 
-export const NavBar = ({ avatar_url }: NavBarProps) => {
+export const NavBar = ({ avatar_url, logOut }: NavBarProps) => {
   const { colorMode, toggleColorMode } = useColorMode();
   return (
     <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
@@ -53,7 +53,9 @@ export const NavBar = ({ avatar_url }: NavBarProps) => {
                 <MenuDivider />
                 <MenuItem>Your Servers</MenuItem>
                 <MenuItem>Account Settings</MenuItem>
-                <MenuItem>Logout</MenuItem>
+                <MenuItem as="button" onClick={logOut}>
+                  Logout
+                </MenuItem>
               </MenuList>
             </Menu>
           </Stack>

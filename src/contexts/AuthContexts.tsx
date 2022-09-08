@@ -1,7 +1,7 @@
 /* eslint-disable dot-notation */
 import React, { createContext, useEffect, useMemo, useState } from 'react';
 
-import { setCookie, parseCookies } from 'nookies';
+import { setCookie, parseCookies, destroyCookie } from 'nookies';
 import Router from 'next/router';
 
 import { recoverUserInformation, signInRequest } from '../services/auth';
@@ -45,8 +45,14 @@ export const AuthProvider = ({ children }: ChildrenProps) => {
     return false;
   };
 
+  const logOut = async () => {
+    destroyCookie(undefined, 'NextAuth.token');
+    Router.push('/');
+    return false;
+  };
+
   const memorizeData = useMemo(
-    () => ({ userState, isAuthenticated, signIn }),
+    () => ({ userState, isAuthenticated, signIn, logOut }),
     [isAuthenticated, userState],
   );
 

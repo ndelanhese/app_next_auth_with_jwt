@@ -10,13 +10,13 @@ import { getAPIClient } from '../../services/axios';
 import { api } from '../../services/api';
 
 export const Dashboard = () => {
-  const { userState } = useContext(AuthContext);
+  const { userState, logOut } = useContext(AuthContext);
 
   useEffect(() => {
     api.get('/user');
   });
 
-  return <NavBar avatar_url={userState?.avatar_url} />;
+  return <NavBar avatar_url={userState?.avatar_url} logOut={logOut} />;
 };
 
 export const getServerSideProps: GetServerSideProps = async ctx => {

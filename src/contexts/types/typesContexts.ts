@@ -2,6 +2,7 @@ export type AuthContextProps = {
   userState: UserProps | null;
   isAuthenticated: boolean;
   signIn: (data: SignIntProps) => Promise<boolean>;
+  logOut: () => Promise<boolean>;
 };
 
 export type SignIntProps = {
