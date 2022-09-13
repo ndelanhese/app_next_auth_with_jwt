@@ -8,7 +8,10 @@ export const Dashboard = () => {
   const { userState, logOut } = useContext(AuthContext);
 
   useEffect(() => {
-    api.get('/user');
+    api
+      .get('/user')
+      .then(response => response)
+      .catch(e => e);
   });
 
   return <NavBar avatar_url={userState?.avatar_url} logOut={logOut} />;
